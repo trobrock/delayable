@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    delayable (0.2.0)
+    delayable (0.3.0)
       rails (>= 7.0.4.3)
 
 GEM
