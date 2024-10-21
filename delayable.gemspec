@@ -4,15 +4,15 @@ Gem::Specification.new do |spec|
   spec.name        = "delayable"
   spec.version     = Delayable::VERSION
   spec.authors     = ["Trae Robrock"]
-  spec.email       = ["trobrock@gmail.com"]
+  spec.email       = ["trobrock@gmail.com", "andrew.katz@hey.com"]
   spec.homepage    = "https://github.com/trobrock/delayable"
-  spec.summary     = "https://github.com/trobrock/delayable."
-  spec.description = "https://github.com/trobrock/delayable."
-    spec.license     = "MIT"
+  spec.summary     = "https://github.com/trobrock/delayable"
+  spec.description = "https://github.com/trobrock/delayable"
+  spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the "allowed_push_host"
   # to allow pushing to a single host or delete this section to allow pushing to any host.
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/trobrock/delayable.git"
