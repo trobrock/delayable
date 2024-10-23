@@ -153,6 +153,8 @@ PLATFORMS
 
 DEPENDENCIES
   delayable!
+  minitest (~> 5.16)
+  rake (~> 13.0)
 
 BUNDLED WITH
    2.4.12
