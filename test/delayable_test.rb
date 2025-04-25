@@ -1,16 +1,13 @@
-
-# frozen_string_literal: true
-
-require "test_helper"
-require "active_model"
-require "active_job"
-require "active_support/current_attributes"
+require 'test_helper'
+require 'active_model'
+require 'active_job'
+require 'active_support/current_attributes'
 
 GlobalID.app = 'delayable'
 ActiveJob::Base.logger = nil
 ActiveJob::Base.queue_adapter = :test
 
-RESPONSES = []
+RESPONSES = [] # rubocop:disable Style/MutableConstant
 
 class ApplicationJob < ActiveJob::Base
 end
@@ -23,7 +20,7 @@ class ExampleDelayable
   include GlobalID::Identification
   include Delayable
 
-  def self.find(*args)
+  def self.find(*_args)
     new
   end
 

@@ -1,20 +1,22 @@
-require "active_support/concern"
-require "active_support/core_ext/string/inflections"
+require 'active_support/concern'
+require 'active_support/core_ext/string/inflections'
 
-require "delayable/version"
+require 'delayable/version'
 
 module Delayable
   extend ActiveSupport::Concern
 
   included do
-    fail "Please define ApplicationJob before including Delayable" unless defined?(ApplicationJob)
-    fail "Please define Current before including Delayable" unless defined?(Current)
+    fail 'Please define ApplicationJob before including Delayable' unless defined?(ApplicationJob)
+    fail 'Please define Current before including Delayable' unless defined?(Current)
   end
 
   class_methods do
     def delay(method_name, class_method: false, wait: nil, limits_concurrency: nil, queue: :default)
-      job = const_set(delayable_job_name(method_name, class_method:),
-                      delayable_job_class(method_name, class_method:, concurrency_limits: limits_concurrency, queue:))
+      job = const_set(
+        delayable_job_name(method_name, class_method:),
+        delayable_job_class(method_name, class_method:, concurrency_limits: limits_concurrency, queue:)
+      )
 
       defined_wait = wait
       delayable_define_method(class_method:, method_name:) do |*arguments, **kwargs|
@@ -46,10 +48,10 @@ module Delayable
       :"#{'Class' if class_method}#{class_name}Job"
     end
 
-    def delayable_define_method(class_method:, method_name:, &block)
+    def delayable_define_method(class_method:, method_name:, &)
       define_method_type = class_method ? :define_singleton_method : :define_method
       method_name = bang_method?(method_name) ? "#{method_name.to_s.chomp('!')}_later!" : "#{method_name}_later"
-      public_send(define_method_type, method_name, &block)
+      public_send(define_method_type, method_name, &)
     end
 
     def bang_method?(method_name)

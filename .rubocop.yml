@@ -1,0 +1,23 @@
+inherit_from:
+  - https://raw.githubusercontent.com/trobrock/style-guides/4ed16c7/ruby-style.yml
+
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+Rails/OutputSafety:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+AllCops:
+  TargetRailsVersion: 8.0 # Can remove this after rubocop > v1.63.5
+  NewCops: enable
+  Exclude:
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - db/schema.rb
+    - 'bin/**/*'
+    - Brewfile
+    - 'lib/generators/**/templates/**/*'
